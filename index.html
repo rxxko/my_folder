@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Protected Folder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      text-align: center;
+    }
+    input[type="password"] {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Enter the Password to Access the Folder</h2>
+  <form id="passwordForm">
+    <input type="password" id="passwordInput" placeholder="Enter password" required />
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const correctPassword = '41222'; // Set your password here
+    const folderLink = 'https://drive.google.com/drive/folders/1uW2p1vKsx2Hq88uRZLU-WCIsngdi3HUw?usp=sharing'; // Set your folder URL here
+
+    document.getElementById('passwordForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const enteredPassword = document.getElementById('passwordInput').value;
+
+      if (enteredPassword === correctPassword) {
+        window.location.href = folderLink; // Redirect to the folder if the password is correct
+      } else {
+        alert('Incorrect password. Try again.');
+      }
+    });
+  </script>
+</body>
+</html>
